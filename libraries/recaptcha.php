@@ -16,11 +16,12 @@ class recaptcha
     private $_ci;
 
     /**
-     * reCAPTCHA site up and verify url.
+     * reCAPTCHA site up, verify and api url.
      *
      */
     const sign_up_url = 'https://www.google.com/recaptcha/admin';
     const site_verify_url = 'https://www.google.com/recaptcha/api/siteverify';
+    const api_url = 'https://www.google.com/recaptcha/api.js';
 
     /**
      * constructor
@@ -99,5 +100,25 @@ class recaptcha
             'success' => $status,
             'error-codes' => (isset($error)) ? $error : null,
         );
+    }
+
+    /**
+     * Render Script Tag
+     *
+     * onload: Optional.
+     * render: [explicit|onload] Optional.
+     * hl: Optional.
+     * see: https://developers.google.com/recaptcha/docs/display
+     *
+     * @param array parameters.
+     *
+     * @return scripts
+     */
+    public function getScriptTag(array $parameters)
+    {
+        $scripts = sprintf('<script src="%s?%s" async defer></script>',
+            self::api_url, http_build_query($parameters));
+
+        return $scripts;
     }
 }
