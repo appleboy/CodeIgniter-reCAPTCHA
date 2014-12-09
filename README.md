@@ -45,7 +45,7 @@ echo $this->recaptcha->getWidget();
 
 output:
 
-```
+```html
 <div class="g-recaptcha" data-sitekey="xxxx" data-theme="light" data-type="image" data-callback="" ></div>
 ```
 
@@ -70,7 +70,7 @@ echo $this->recaptcha->getScriptTag();
 
 output:
 
-```
+```html
 <script src="https://www.google.com/recaptcha/api.js?render=onload&hl=en" async defer></script>
 ```
 
@@ -85,6 +85,10 @@ change default language by pass array parameter
 ```php
 echo $this->recaptcha->getScriptTag(array('render' => 'explicit', 'hl' => 'zh-TW'));
 ```
+
+# Author
+
+Bo-Yi Wu [@appleboy](https://twitter.com/appleboy)
 
 [1]: https://www.google.com/recaptcha/intro/index.html
 [2]: http://www.codeigniter.com/
