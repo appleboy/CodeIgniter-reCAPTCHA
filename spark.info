@@ -1,0 +1,16 @@
+# This is the spark name. This should be the registered name of the spark.
+# It is here for informational purposes only.
+
+name: codeigniter-recaptcha
+
+# This is the current version of this spark. All sparks should be in
+# x.x.x format. Validation will fail otherwise.
+
+version: 1.0.0
+
+# This is the version of CodeIgniter this spark is compatible up to. It should
+# be in x.x.x format
+
+compatibility: 2.2.0
+
+tags: ["recaptcha", "google"]
