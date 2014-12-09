@@ -14,7 +14,7 @@ To use reCAPTCHA, you need to [sign up for an API key pair][4] for your site. Th
 
 # Installation
 
-You can install via http://getsparks.org/packages/codeigniter-gearman/show
+You can install via http://getsparks.org/packages/codeigniter-recaptcha/show
 
 ```bash
 $ php tools/spark install -v1.0.0 codeigniter-recaptcha
@@ -84,6 +84,23 @@ change default language by pass array parameter
 
 ```php
 echo $this->recaptcha->getScriptTag(array('render' => 'explicit', 'hl' => 'zh-TW'));
+```
+
+### verify Response
+
+Calls the reCAPTCHA siteverify API to verify whether the user passes `g-recaptcha-response` POST parameter.
+
+```php
+$g-recaptcha-response = $this->input->post('g-recaptcha-response');
+$response = $this->recaptcha->verifyResponse($g-recaptcha-response);
+```
+
+check success or fail
+
+```php
+if (isset($response['success']) and $response['success'] === true) {
+    echo "You got it!";
+}
 ```
 
 # Author
