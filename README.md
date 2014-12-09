@@ -86,13 +86,13 @@ change default language by pass array parameter
 echo $this->recaptcha->getScriptTag(array('render' => 'explicit', 'hl' => 'zh-TW'));
 ```
 
-### verify Response
+### Verify Response
 
 Calls the reCAPTCHA siteverify API to verify whether the user passes `g-recaptcha-response` POST parameter.
 
 ```php
-$g-recaptcha-response = $this->input->post('g-recaptcha-response');
-$response = $this->recaptcha->verifyResponse($g-recaptcha-response);
+$recaptcha = $this->input->post('g-recaptcha-response');
+$response = $this->recaptcha->verifyResponse($recaptcha);
 ```
 
 check success or fail
