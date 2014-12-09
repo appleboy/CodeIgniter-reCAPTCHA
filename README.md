@@ -17,7 +17,7 @@ To use reCAPTCHA, you need to [sign up for an API key pair][4] for your site. Th
 You can install via http://getsparks.org/packages/codeigniter-recaptcha/show
 
 ```bash
-$ php tools/spark install -v1.0.0 recaptcha-library
+$ php tools/spark install -v1.0.2 recaptcha-library
 ```
 
 or manual install

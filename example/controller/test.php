@@ -18,8 +18,8 @@ class test extends CI_Controller
         }
 
         $data = array(
-          'widget' => $this->recaptcha->getWidget(),
-          'script' => $this->recaptcha->getScriptTag(),
+            'widget' => $this->recaptcha->getWidget(),
+            'script' => $this->recaptcha->getScriptTag(),
         );
         $this->load->view('recaptcha', $data);
     }
