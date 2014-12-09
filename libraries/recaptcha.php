@@ -34,6 +34,7 @@ class recaptcha
         $this->_ci->load->config('recaptcha');
         $this->_siteKey = $this->_ci->config->item('recaptcha_site_key');
         $this->_secretKey = $this->_ci->config->item('recaptcha_secret_key');
+        $this->_language = $this->_ci->config->item('recaptcha_lang');
 
         if (empty($this->_siteKey) or empty($this->_secretKey)) {
             die("To use reCAPTCHA you must get an API key from <a href='"
@@ -114,11 +115,47 @@ class recaptcha
      *
      * @return scripts
      */
-    public function getScriptTag(array $parameters)
+    public function getScriptTag(array $parameters = array())
     {
+        $default = array(
+            'render' => 'onload',
+            'hl' => $this->_language,
+        );
+
+        $result = array_merge($default, $parameters);
+
         $scripts = sprintf('<script src="%s?%s" async defer></script>',
-            self::api_url, http_build_query($parameters));
+            self::api_url, http_build_query($result));
 
         return $scripts;
+    }
+
+    /**
+     * render the reCAPTCHA widget
+     *
+     * data-theme: dark|light
+     * data-type: audio|image
+     *
+     * @param array parameters.
+     *
+     * @return scripts
+     */
+    public function getWidget(array $parameters = array())
+    {
+        $default = array(
+            'data-sitekey' => $this->_siteKey,
+            'data-theme' => 'light',
+            'data-type' => 'image',
+            'data-callback' => '',
+        );
+
+        $result = array_merge($default, $parameters);
+
+        $html = '';
+        foreach ($result as $key => $value) {
+            $html .= sprintf('%s="%s" ', $key, $value);
+        }
+
+        return '<div class="g-recaptcha" '.$html.'></div>';
     }
 }
