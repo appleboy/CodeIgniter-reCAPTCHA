@@ -124,7 +124,7 @@ class recaptcha
 
         $result = array_merge($default, $parameters);
 
-        $scripts = sprintf('<script src="%s?%s" async defer></script>',
+        $scripts = sprintf('<script type="text/javascript" src="%s?%s" async defer></script>',
             self::api_url, http_build_query($result));
 
         return $scripts;
@@ -146,7 +146,6 @@ class recaptcha
             'data-sitekey' => $this->_siteKey,
             'data-theme' => 'light',
             'data-type' => 'image',
-            'data-callback' => '',
         );
 
         $result = array_merge($default, $parameters);
