@@ -16,13 +16,13 @@ To use reCAPTCHA, you need to [sign up for an API key pair][4] for your site. Th
 
 You can install via http://getsparks.org/packages/codeigniter-gearman/show
 
-```
+```bash
 $ php tools/spark install -v1.0.0 codeigniter-recaptcha
 ```
 
 or manual install
 
-```
+```bash
 $ cp config/recaptcha.php your_application/config/
 $ cp libraries/recaptcha.php your_application/libraries/
 ```
