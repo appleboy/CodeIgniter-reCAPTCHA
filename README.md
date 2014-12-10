@@ -1,6 +1,6 @@
 # CodeIgniter-reCAPTCHA
 
-The FREE anti-abuse service. Easy to add, advanced security, accessible to wide range of users and platforms.
+The FREE anti-abuse service. Easy to add, advanced security, accessible to wide range of users and platforms. This package is compliant with [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) and [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
 
 # What is reCAPTCHA?
 
