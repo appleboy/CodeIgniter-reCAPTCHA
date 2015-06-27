@@ -7,7 +7,7 @@
  * @author  Bo-Yi Wu <appleboy.tw@gmail.com>
  * @link    https://github.com/appleboy/CodeIgniter-reCAPTCHA
  */
-class recaptcha
+class Recaptcha
 {
     /**
      * ci instance object
