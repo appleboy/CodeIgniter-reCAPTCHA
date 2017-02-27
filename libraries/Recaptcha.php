@@ -146,6 +146,7 @@ class Recaptcha
             'data-sitekey' => $this->_siteKey,
             'data-theme' => 'light',
             'data-type' => 'image',
+            'data-size' => 'normal',
         );
 
         $result = array_merge($default, $parameters);
