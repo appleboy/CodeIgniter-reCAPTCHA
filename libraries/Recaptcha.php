@@ -52,7 +52,21 @@ class Recaptcha
     private function _submitHTTPGet($data)
     {
         $url = self::site_verify_url.'?'.http_build_query($data);
-        $response = file_get_contents($url);
+        
+        if( ini_get('allow_url_fopen') ) {
+            $response = file_get_contents($url);
+        } else {
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);       
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+        }
 
         return $response;
     }
